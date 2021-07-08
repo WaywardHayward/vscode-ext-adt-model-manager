@@ -1,0 +1,123 @@
+{
+	"name": "adtmanager",
+	"icon": "logo.png",
+	"displayName": "Azure Digital Twin Manager",
+	"repository": {
+		"url": "https://dev.azure.com/alexhayward/hack-n-learn/_git/vscode-ext-adt-model-manager"
+	},
+	"publisher": "alexhayward",
+	"description": "A VSCode Extension which This extension allows users to create adt workspaces enabling the editing of Azure Digital Twin Models",
+	"version": "0.0.11",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"categories": [
+		"Azure",
+		"Snippets"
+	],
+	"activationEvents": [
+		"onCommand:adtmanager.connect",
+		"onCommand:adtmanager.models.export",
+		"onCommand:adtmanager.models.extend",
+		"onCommand:adtmanager.models.upload",
+		"onCommand:adtmanager.models.decomission",
+		"onCommand:adtmanager.models.delete",
+		"onCommand:adtmanager.models.create"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "adtmanager.connect",
+				"title": "$(debug-disconnect) Azure Digital Twin: Connect to Workspace to Instance"
+			},
+			{
+				"command": "adtmanager.models.create",
+				"title": "$(cloud-download) Azure Digital Twin: Create A Model"
+			},
+			{
+				"command": "adtmanager.models.export",
+				"title": "$(cloud-download) Azure Digital Twin: Import Models from Twin Instance into workspace"
+			},
+			{
+				"command": "adtmanager.models.upload",
+				"title": "$(cloud-upload) Azure Digital Twin: Upload Model"
+			},
+			{
+				"command": "adtmanager.models.decomission",
+				"title": "$(sync-ignored) Azure Digital Twin: Decommission mission Model"
+			},
+			{
+				"command": "adtmanager.models.extend",
+				"title": "$(code) Azure Digital Twin: Extend Model"
+			},
+			{
+				"command": "adtmanager.models.delete",
+				"title": "$(error) Azure Digital Twin: Delete Model"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "adtmanager.models.upload",
+					"when": "resourceExtname == .json || resourceExtname == .dtdl",
+					"group": "digitaltwin"
+				},
+				{
+					"command": "adtmanager.models.extend",
+					"when": "resourceExtname == .json || resourceExtname == .dtdl",
+					"group": "digitaltwin"
+				},
+				{
+					"command": "adtmanager.models.decomission",
+					"when": "resourceExtname == .json || resourceExtname == .dtdl",
+					"group": "digitaltwin"
+				},
+				{
+					"command": "adtmanager.models.delete",
+					"when": "resourceExtname == .json || resourceExtname == .dtdl",
+					"group": "digitaltwin"
+				},
+				{
+					"command": "adtmanager.models.create",
+					"when": "explorerResourceIsFolder || resourceExtname == .json || resourceExtname == .dtdl",
+					"group": "digitaltwin"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.57.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	},
+	"extensionDependencies": [
+		"ms-vscode.azure-account",
+		"vsciot-vscode.vscode-dtdl"
+	],
+	"dependencies": {
+		"@azure/arm-digitaltwins": "^2.1.0",
+		"@azure/arm-resources": "^4.2.0",
+		"@azure/arm-subscriptions": "^3.0.0",
+		"@azure/digital-twins-core": "^1.0.3",
+		"@azure/identity": "^1.3.0",
+		"@azure/ms-rest-nodeauth": "^3.0.10",
+		"ms-rest": "^2.5.4"
+	}
+}
