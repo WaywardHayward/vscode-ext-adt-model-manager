@@ -1,1 +1,0 @@
-{"version":3,"file":"ConfirmAction.js","sourceRoot":"","sources":["../../../src/common/vs-code/ConfirmAction.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,mCAAgC;AAGhC,SAAsB,aAAa,CAAC,OAAc;;QAC9C,IAAI,SAAS,GAAG,MAAM,eAAM;aAC3B,sBAAsB,CACpB,OAAO,EACN,GAAG,CAAC,KAAK,EAAE,IAAI,CAAC,CACnB,CAAC;QACF,OAAO,SAAS,IAAI,KAAK,CAAC;IAC9B,CAAC;CAAA;AAPD,sCAOC"}
