@@ -7,7 +7,7 @@
 	},
 	"publisher": "alexhayward",
 	"description": "A VSCode Extension which This extension allows users to create adt workspaces enabling the editing of Azure Digital Twin Models",
-	"version": "0.0.11",
+	"version": "0.0.14",
 	"engines": {
 		"vscode": "^1.57.0"
 	},
