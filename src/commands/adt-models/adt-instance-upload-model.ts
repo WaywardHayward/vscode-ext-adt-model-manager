@@ -97,6 +97,9 @@ export async function adtInstanceUploadModel(resource: Uri, context: ExtensionCo
       await upgradeModelReferences(modelData.modelId, newResource, locator, context, client);
       await decomissionModel(resource, context, false, client);
 
+    }else
+    {
+      await tryUploadModel(resource, locator, cli);
     }
   }
   catch (ex) {
