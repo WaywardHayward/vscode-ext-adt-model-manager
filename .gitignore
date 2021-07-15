@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+*.vsix
+
 # User-specific files
 *.rsuser
 *.suo
@@ -31,6 +33,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+[Oo]ut/
+[Oo]ut/**.*
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -360,3 +364,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
