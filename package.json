@@ -3,9 +3,9 @@
 	"icon": "logo.png",
 	"displayName": "Azure Digital Twin Manager",
 	"repository": {
-		"url": "https://dev.azure.com/alexhayward/hack-n-learn/_git/vscode-ext-adt-model-manager"
+		"url": "https://github.com/WaywardHayward/vscode-ext-adt-model-manager"
 	},
-	"publisher": "alexhayward",
+	"publisher": "waywardhayward",
 	"description": "A VSCode Extension which This extension allows users to create adt workspaces enabling the editing of Azure Digital Twin Models",
 	"version": "0.0.15",
 	"engines": {
