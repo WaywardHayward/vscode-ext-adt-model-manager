@@ -7,6 +7,8 @@ export function lookupLocationShortName(location: string|undefined) {
 
     switch (location.toLowerCase())
     {
+        case 'eastus': return "eus";
+        case 'eastus2': return "eus2";
         case 'northeurope': return 'neu';
         case 'southcentralus': return 'scus';
         case 'westcentralus': return 'wcus';

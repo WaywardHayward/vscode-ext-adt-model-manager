@@ -32,21 +32,44 @@ async function downloadModels(adtInstance: AdtWorkspaceLocator | undefined) {
         return;
     }
 
+    let actionNames = "Import Models";
+
     try {
 
+        actionNames = "Authenticating";
         let client = getAuthenticatedAdtClient(adtInstance);
+        actionNames = "Listing Models";
         var models = await client.listModels(undefined, true);
         let modelCount = 0;
 
+        if(!models)
+        {
+            window.showInformationMessage(`Unable to download models from ${adtInstance.name}`);
+            return;
+        }
+
+        actionNames = "Importing Models";
+
+        console.log(models);
+
+
         for await (const modelDefinition of models) {
-            await saveModel(modelDefinition.id, modelDefinition.model, modelDefinition.decommissioned ?? false, adtInstance.name);
+            try
+            {
+                actionNames = "Importing Model "+modelDefinition.id;
+                await saveModel(modelDefinition.id, modelDefinition.model, modelDefinition.decommissioned ?? false, adtInstance.name);
             modelCount++;
+            }catch(e){
+                console.log(e);
+                await handleAdtRequestError(e, "export model", adtInstance);
+            }
         }
 
         window.showInformationMessage(`Found ${modelCount} models in ${adtInstance.name}`);
 
     } catch (ex) {
-        return handleAdtRequestError(ex, `Import models`, adtInstance);
+        console.log(ex);
+        return handleAdtRequestError(ex, actionNames, adtInstance);
     }
 
     window.setStatusBarMessage('');

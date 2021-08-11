@@ -4,6 +4,7 @@ import { AdtWorkspaceLocator } from "../adt-workspace/adt-get-workspace-locator"
 
 export async function handleAdtRequestError(ex: any, actionName:string, adtInstance: AdtWorkspaceLocator | undefined) {
     window.setStatusBarMessage(``);
+    console.error(ex);
     if (ex.name && ex.name === "RestError") {
         return handleAdtError(ex,actionName,  adtInstance);
     } else {
@@ -18,6 +19,10 @@ function handleAdtError(ex: any, actionName:string, adtInstance: AdtWorkspaceLoc
 
     if (ex.statusCode === 404) {
         window.showErrorMessage(`Unable to connect to ${adtInstance?.url} - not found  \n${ex}`);
+    }
+
+    if (ex.statusCode === 403) {
+        window.showErrorMessage(`Unable to connect to ${adtInstance?.url} - forbidden  \n${ex}`);
     }
 
     if (ex.statusCode === 401) {

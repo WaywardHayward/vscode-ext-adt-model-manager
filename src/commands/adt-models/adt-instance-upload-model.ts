@@ -1,4 +1,4 @@
-import { DigitalTwinsClient } from '@azure/digital-twins-core';
+import { DigitalTwinsClient } from "@azure/digital-twins-core";
 import { dirname } from 'path';
 import { ExtensionContext, Progress, ProgressLocation, Uri, window, workspace } from 'vscode';
 import { getAuthenticatedAdtClient } from '../adt-authentication/adt-get-authenticated-client';

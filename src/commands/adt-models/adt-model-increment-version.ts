@@ -1,4 +1,4 @@
-import { DigitalTwinsClient } from '@azure/digital-twins-core';
+import { DigitalTwinsClient } from "@azure/digital-twins-core";
 import { dirname } from 'path';
 import * as vscode from 'vscode';
 import { Uri } from 'vscode';
